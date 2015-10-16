@@ -13,7 +13,7 @@ capabilities['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSI
 
 browser = Selenium::WebDriver.for(:remote, :url => url, :desired_capabilities => capabilities)
 
-Before do |scenario|
+before do |scenario|
 @browser = browser
 end
 
