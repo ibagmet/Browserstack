@@ -1,6 +1,6 @@
 machine:
   ruby:
-    version: 2.0.0-p0
+    version: 2.2.1
   environment:
     SELENIUM_HOST: hub.browserstack.com
     SELENIUM_PORT: 80
