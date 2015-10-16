@@ -1,6 +1,6 @@
 require 'selenium/webdriver'
 
-url = "http://#{ENV['BS_USERNAME']}:#{ENV['BS_AUTHKEY']}@hub.browserstack.com/wd/hub"
+url = "http://ibagmet1:6HbMB1CQ8mdmy1Ys7b9U@hub.browserstack.com/wd/hub"
 
 capabilities = Selenium::WebDriver::Remote::Capabilities.new
 
