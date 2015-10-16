@@ -7,7 +7,7 @@ machine:
     BS_USERNAME: "ibagmet1"
     BS_AUTHKEY: "6HbMB1CQ8mdmy1Ys7b9"
     BS_AUTOMATE_PROJECT: "Run on circleCI"
-    BS_AUTOMATE_BUILD: "Travis build No. $CIRCLE_BUILD_NUM for circleCI"
+    BS_AUTOMATE_BUILD: "build No. $CIRCLE_BUILD_NUM for circleCI"
     SELENIUM_PLATFORM: WINDOWS 
     SELENIUM_BROWSER: IE 
     SELENIUM_VERSION: 9
@@ -19,4 +19,4 @@ machine:
 
 test:
   override:
-    - bundle exec rake simple_test.rb
+    - bundle exec rake test

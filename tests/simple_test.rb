@@ -4,8 +4,8 @@ url = "http://#{ENV['BS_USERNAME']}:#{ENV['BS_AUTHKEY']}@hub.browserstack.com/wd
 
 capabilities = Selenium::WebDriver::Remote::Capabilities.new
 
-# capabilities['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
-# capabilities['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
+capabilities['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
+capabilities['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
 
 capabilities['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
 capabilities['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
