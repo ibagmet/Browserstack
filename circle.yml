@@ -19,4 +19,5 @@ machine:
 
 test:
   override:
+    - ./BrowserStackLocal 6HbMB1CQ8mdmy1Ys7b9U
     - bundle exec rake test
