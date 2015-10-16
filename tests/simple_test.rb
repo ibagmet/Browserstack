@@ -24,15 +24,8 @@ class SimpleTest < Test::Unit::TestCase
   def test_post
     base_url = 'https://deseretbook.com'
     @browser.goto base_url
-    
-    b = Watir::Browser.start 'https://deseretbook.com'
-    l = b.link :text => 'Login'
-    l.exists?
-    l.click
 
-
-
-    #@browser.a(text: "Login").when_present.click
+    @browser.li(id: "link-to-login").when_present.click
 
 
 
