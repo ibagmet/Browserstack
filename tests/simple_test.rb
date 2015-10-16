@@ -1,10 +1,10 @@
 require 'rubygems'
 require 'selenium-webdriver'
-#require 'test/unit'
+require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
 
-class SampleTest < Test::Unit::TestCase
+class SimpleTest < Test::Unit::TestCase
     include Selenium
 
   def setup

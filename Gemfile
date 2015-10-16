@@ -5,6 +5,7 @@ gem 'watir-webdriver'
 gem 'minitest'
 gem 'minitest-reporters'
 gem 'pry-byebug'
+gem 'test-unit', '~> 3.1.5'
 
 gem 'httparty' # for getting new gift card numbers
 gem 'faker'
