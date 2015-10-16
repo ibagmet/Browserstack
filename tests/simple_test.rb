@@ -24,8 +24,8 @@ class SimpleTest < Test::Unit::TestCase
   def test_post
     base_url = 'https://deseretbook.com'
     @browser.goto base_url
-    @browser.link(text: "Login").when_present.click
-    @browser.link(text: "Create a new account").click
+    @browser.a(text: "Login").click
+    @browser.a(text: "Create a new account").click
     email_new = ::Faker::Internet.safe_email
     @browser.text_field(name: "spree_user[email]").set email_new
     @browser.text_field(name: "spree_user[first_name]").set 'test'
