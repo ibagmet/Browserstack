@@ -1,0 +1,9 @@
+browser: :firefox
+base_url: https://stage.deseretbook.com
+base_url: https://deseretbook.net
+base_url: https://deseretbook.com
+main_url: https://deseretbook.com
+bookshelf_api_base_url: https://stage.bookshelf.deseretbook.com/api/v1
+physical_product_url: /products/romney-family-table-ann-89648
+digital_product_url: /products/romney-family-table-ann-89648?variant_id=5897
+digital_product_book_id: 4416
