@@ -16,7 +16,7 @@ class SimpleTest < Test::Unit::TestCase
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
-    browser = Watir::Browser.new(:remote,
+    @browser = Watir::Browser.new(:remote,
     :url => "http://ibagmet1:6HbMB1CQ8mdmy1Ys7b9U@hub.browserstack.com/wd/hub",
     :desired_capabilities => caps)
   end
