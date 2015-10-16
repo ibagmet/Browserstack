@@ -12,4 +12,4 @@ machine:
 
 test:
   override:
-    - bundle exec rake setup
+    - bundle exec rake test
