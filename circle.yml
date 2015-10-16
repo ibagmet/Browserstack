@@ -19,4 +19,4 @@ machine:
 
 test:
   override:
-    - ./rst tests/simple_test.rb
+    - bundle exec rake simple_test.rb
