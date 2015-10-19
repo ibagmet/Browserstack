@@ -12,8 +12,7 @@ class SimpleTest < Test::Unit::TestCase
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
     caps['name'] = 'Watir WebDriver'
-    caps['platform'] = ENV['BS_AUTOMATE_OS'] || 'ANY'
-    caps['version'] = ENV ['BS_AUTOMATE_OS_VERSION']
+    caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
@@ -23,7 +22,7 @@ class SimpleTest < Test::Unit::TestCase
   end
 
   def test_post
-    base_url = 'https://deseretbook.com'
+    base_url = 'https://stage.deseretbook.com'
     @browser.goto base_url
 
     @browser.link(text: "Login").when_present.click
