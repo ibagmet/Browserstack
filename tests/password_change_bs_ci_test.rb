@@ -4,28 +4,24 @@ require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
 
-
-class PasswordChangeTestForBrowserstack < Test::Unit::TestCase
+class PasswordChangeBrCiTest < Test::Unit::TestCase
     include Selenium
 
-def setup
+  def setup
     caps = WebDriver::Remote::Capabilities.new
-    caps[:name] = 'Watir WebDriver'
-
-    caps[:os] = 'Windows'
-    caps[:browser] = 'firefox'
-    caps[:browser_version] = '20'
-
-    caps['browserstack.debug'] = 'true'
-    caps['browserstack.local'] = 'true'
-    caps['browserstack.localIdentifier'] = 'Test123'
+    caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
+    caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
+    caps['name'] = 'Watir WebDriver'
+    caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
+    caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
+    caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
     @browser = Watir::Browser.new(:remote,
     :url => "http://ibagmet1:6HbMB1CQ8mdmy1Ys7b9U@hub.browserstack.com/wd/hub",
     :desired_capabilities => caps)
-end
+  end
 
-def test_post
+  def test_post
     base_url = 'https://deseretbook.net'
     @browser.goto  'https://deseretbook.net/signup'
     email_name = ::Faker::Internet.safe_email 
@@ -56,6 +52,5 @@ def test_post
     assert(@browser.div(class: 'flash success').present?)
     puts @browser.title
     @browser.quit
-end
-
+    end
 end
