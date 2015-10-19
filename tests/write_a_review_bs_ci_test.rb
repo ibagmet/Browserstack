@@ -19,10 +19,11 @@ class WriteAReviewBsCiTest < Test::Unit::TestCase
     @browser = Watir::Browser.new(:remote,
     :url => "http://ibagmet1:6HbMB1CQ8mdmy1Ys7b9U@hub.browserstack.com/wd/hub",
     :desired_capabilities => caps)
+    @base_url = 'https://deseretbook.com'
   end
 
   def test_guest_cannot_write_a_review
-    @browser.goto  'https://deseretbook.net/logout'
+    @browser.goto  "#{@base_url}/logout"
     go_to_variant_page
     if @browser.a(text: "Write a Review").exists?
       @browser.a(text: "Write a Review").click
