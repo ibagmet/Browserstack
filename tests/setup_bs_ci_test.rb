@@ -22,7 +22,7 @@ class SimpleTest < Test::Unit::TestCase
   end
 
   def test_post
-    base_url = 'db-production.elasticbeanstalk.com'
+    base_url = 'https://deseretbook.net'
     @browser.goto base_url
 
     @browser.link(text: "Login").when_present.click
