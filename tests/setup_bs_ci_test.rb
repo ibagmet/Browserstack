@@ -41,7 +41,7 @@ class SimpleTest < Test::Unit::TestCase
 # End If
     sleep(5)
     @browser.h2(id: "expertContent").exists?
-    @browser.h2(id: "expertContent").click
+    @browser.h2(id: "expertContent").when_present.click
     @browser.button(text: "Add Exception...").click
     @browser.button(text: "Confirm Security Exception").exists?
     @browser.button(text: "Confirm Security Exception").click
