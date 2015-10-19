@@ -39,7 +39,7 @@ class SimpleTest < Test::Unit::TestCase
 # Browser("CreationTime:=0").Dialog("text:=Add Security Exception").GetTextLocation "Confirm Security Exception", x1, y1, x2, y2
 # Browser("CreationTime:=0").Dialog("text:=Add Security Exception").Click (x1+x2)/2, (y1+y2)/2
 # End If
-
+    sleep(5)
     if @browser.button(text: "I Understand the Risks").exists?
       @browser.button(text: "I Understand the Risks").click
       @browser.button(text: "Add Exception...").click
