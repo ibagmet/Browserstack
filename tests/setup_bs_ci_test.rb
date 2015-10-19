@@ -9,10 +9,17 @@ class SimpleTest < Test::Unit::TestCase
 
   def setup
     caps = WebDriver::Remote::Capabilities.new
+    caps['name'] = 'Watir WebDriver'
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Watir WebDriver'
+
+    if ENV['BS_AUTOMATE_OS']
+    caps['os'] = ENV['BS_AUTOMATE_OS']
+    caps['os_version'] = ENV['BS_AUTOMATE_OS_VERSION']
+    else
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
+    end
+
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
