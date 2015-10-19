@@ -22,7 +22,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
   end
 
   def test_post
-    base_url = 'https://stage.deseretbook.net'
+    @base_url = 'https://stage.deseretbook.net'
     @browser.goto  "#{@base_url}/signup"
     email_name = ::Faker::Internet.safe_email 
     @browser.text_field(name: "spree_user[email]").set email_name
