@@ -19,4 +19,5 @@ machine:
 
 test:
   override:
-    - bundle exec rake test
+    #- bundle exec rake test
+    - ./rst tests/item_added_test.rb
