@@ -12,7 +12,8 @@ class SimpleTest < Test::Unit::TestCase
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
     caps['name'] = 'Watir WebDriver'
-    caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
+    caps['platform'] = ENV['BS_AUTOMATE_OS'] || 'ANY'
+    caps['version'] = ENV ['BS_AUTOMATE_OS_VERSION']
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
@@ -27,7 +28,7 @@ class SimpleTest < Test::Unit::TestCase
 
     @browser.link(text: "Login").when_present.click
     @browser.link(text: "Create a new account").click
-    
+
     email_new = ::Faker::Internet.safe_email
     @browser.text_field(name: "spree_user[email]").set email_new
     @browser.text_field(name: "spree_user[first_name]").set 'test'
