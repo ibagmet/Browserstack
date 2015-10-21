@@ -32,6 +32,7 @@ GEM
     watir-webdriver (0.6.11)
       selenium-webdriver (>= 2.18.0)
     websocket (1.2.2)
+    launchy
 
 PLATFORMS
   ruby

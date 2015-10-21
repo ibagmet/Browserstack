@@ -20,5 +20,5 @@ machine:
 test:
   override:
     #- bundle exec rake test
-    - ./rst tests/item_added_bs_ci_test.rb
+    #- ./rst tests/item_added_bs_ci_test.rb
     - ./rst tests/item_stays_in_a_cart_bs_ci_test.rb
