@@ -34,27 +34,13 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.input(name: "commit").click
     assert(@browser.div(class: 'flash notice').present?)
     searching_for_jingles
-    @browser.goto  "#{@base_url}/logout"
-    @browser.goto  "#{@base_url}/login"
-    @browser.text_field(name: "spree_user[email]").set email_name
-    @browser.text_field(name: "spree_user[password]").set 'test123'
-    @browser.input(name: "commit").click
-    @browser.goto  "#{@base_url}/cart"
-    @browser.a(text: "Jingles 3").exists?
+    checking_existence
     
-    # @browser.goto 'http://the-internet.herokuapp.com'
-    # @browser.link(:text, 'A/B Testing').click(:command, :shift)
-    # @browser.windows.last.use
+    @browser.goto 'http://the-internet.herokuapp.com'
+    @browser.link(:text, 'A/B Testing').click(:command, :shift)
+    @browser.windows.last.use
    
-    # @browser.goto  "#{@base_url}/logout"
-    # @browser.goto  "#{@base_url}/login"
-    Launchy.open("#{@base_url}/login")
-
-    @browser.text_field(name: "spree_user[email]").set email_name
-    @browser.text_field(name: "spree_user[password]").set 'test123'
-    @browser.input(name: "commit").click
-    @browser.goto  "#{@base_url}/cart"
-    @browser.a(text: "Jingles 3").exists?
+    checking_existence
     puts @browser.title
     @browser.quit
   end
@@ -71,4 +57,15 @@ private
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
   end
+
+  def checking_existence
+    @browser.goto  "#{@base_url}/logout"
+    @browser.goto  "#{@base_url}/login"
+    @browser.text_field(name: "spree_user[email]").set email_name
+    @browser.text_field(name: "spree_user[password]").set 'test123'
+    @browser.input(name: "commit").click
+    @browser.goto  "#{@base_url}/cart"
+    @browser.a(text: "Jingles 3").exists?
+  end
+
 end
