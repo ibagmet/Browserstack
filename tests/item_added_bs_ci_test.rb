@@ -37,6 +37,11 @@ class ItemAddedTest < Test::Unit::TestCase
     @browser.a(text: "Continue shopping").exists?
     @browser.a(text: "Continue shopping").click
     assert_equal("#{base_url}/products?sort=popular", @browser.url, "incorrect location")
+    
+    @browser.text_field(name: "keywords").set 'Marble Christus Statue'
+    @browser.input(class: "btn btn-primary img-responsive js-search-button").click
+    assert(@browser.h1(text: "Search results for 'Marble Christus Statue'").exists?)
+    
     @browser.a(text: "19 inch").click
     assert_equal("#{base_url}/p/marble-christus-statue-deseret-book-company-41038?variant_id=62304-19-inch", @browser.url, "incorrect location")
     @browser.button(text: "Add To Cart").click
