@@ -37,7 +37,7 @@ class PasswordChangeBrCiTest < Test::Unit::TestCase
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click
-    @browser.a(text: "My Account").click
+    @browser.a(text: "My Account").when_present.click
     assert_equal("#{base_url}/account", @browser.url, "incorrect location")
     assert @browser.text.include?("My Account")
     @browser.a(text: "Edit").click
