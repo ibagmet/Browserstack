@@ -16,7 +16,7 @@ machine:
     # SELENIUM_BROWSER: firefox 
     # SELENIUM_VERSION: 41
     SELENIUM_BROWSER: IE 
-    SELENIUM_VERSION: 9
+    SELENIUM_VERSION: 11
 
 test:
   override:
