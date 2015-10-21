@@ -20,4 +20,4 @@ machine:
 test:
   override:
     #- bundle exec rake test
-    - ./rst tests/setup_bs_ci_test.rb
+    - ./rst tests/password_change_bs_ci_test.rb
