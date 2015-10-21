@@ -76,7 +76,7 @@ class ItemAddedTest < Test::Unit::TestCase
     end
 
     assert_equal("#{base_url}/checkout/payment", @browser.url, "incorrect location")
-    @browser.a(class: "btn btn-primary pull-right btn-continue js-submit-btn").click
+    @browser.button(class: "btn btn-primary pull-right btn-continue js-submit-btn").click
     assert_equal("#{base_url}/checkout/confirm", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-primary btn-lg pull-right btn-continue").click
     logout
