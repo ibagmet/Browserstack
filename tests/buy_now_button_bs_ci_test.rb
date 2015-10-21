@@ -85,6 +85,7 @@ private
     @browser.input(class: "btn btn-primary img-responsive js-search-button").click
     assert(@browser.h1(text: "Search results for 'L. Tom Perry, An Uncommon Life: Years of Preparation, 1922-1976'").exists?)
     @browser.a(text: "Learn More").click
+    sleep(1)
   end
 
   def searching_for_hinckley
