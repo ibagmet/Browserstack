@@ -41,7 +41,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.input(name: "commit").click
     @browser.goto  "#{@base_url}/cart"
     @browser.a(text: "Jingles 3").exists?
-    @browser.close
+    #@browser.close
     #@browser = open_@browser
     #@browser.open ("#{@base_url}/login")
     #@browser.goto  "#{@base_url}/login"
