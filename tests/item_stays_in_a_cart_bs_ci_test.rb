@@ -41,19 +41,13 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.input(name: "commit").click
     @browser.goto  "#{@base_url}/cart"
     @browser.a(text: "Jingles 3").exists?
-    #@browser.close
-    #@browser = open_@browser
-    #@browser.open ("#{@base_url}/login")
-    #@browser.goto  "#{@base_url}/login"
     
-    url2 = "@base_url/login"
-    @browser.link(:text, 'Open This Window').click
-    @browser.driver.switch_to.window(@browser.driver.window_handles[0])
-    popup = @browser.window(:url2, /newwindow/).use
-
+    @browser.goto 'http://the-internet.herokuapp.com'
+    @browser.link(:text, 'A/B Testing').click(:command, :shift)
+    @browser.windows.last.use
    
-    #@browser.goto  "#{@base_url}/login"
-    #@browser = Launchy.open("#{@base_url}/login")
+    @browser.goto  "#{@base_url}/login"
+    @browser = Launchy.open("#{@base_url}/login")
 
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
