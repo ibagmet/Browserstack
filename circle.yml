@@ -13,10 +13,8 @@ machine:
     SELENIUM_VERSION: 9
     BS_AUTOMATE_OS: "OS X" 
     BS_AUTOMATE_OS_VERSION: Lion 
-    # SELENIUM_BROWSER: firefox 
-    # SELENIUM_VERSION: 20
-    SELENIUM_BROWSER: Yandex
-    SELENIUM_VERSION: 14.12
+    SELENIUM_BROWSER: firefox 
+    SELENIUM_VERSION: 20
 
 test:
   override:
