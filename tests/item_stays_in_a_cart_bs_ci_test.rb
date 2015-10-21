@@ -33,20 +33,20 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.input(name: "commit").click
     assert(@browser.div(class: 'flash notice').present?)
     searching_for_jingles
-    @browser.goto  "#{base_url}/logout"
-    @browser.goto  "#{base_url}/login"
+    @browser.goto  "#{@base_url}/logout"
+    @browser.goto  "#{@base_url}/login"
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click
-    @browser.goto  "#{base_url}/cart"
+    @browser.goto  "#{@base_url}/cart"
     @browser.a(text: "Jingles 3").exists?
     @browser.close
     @browser = open_browser
-    @browser.goto  "#{base_url}/login"
+    @browser.goto  "#{@base_url}/login"
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click
-    @browser.goto  "#{base_url}/cart"
+    @browser.goto  "#{@base_url}/cart"
     @browser.a(text: "Jingles 3").exists?
     puts @browser.title
     @browser.quit
