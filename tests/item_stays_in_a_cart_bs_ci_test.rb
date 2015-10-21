@@ -46,6 +46,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.link(:text, 'A/B Testing').click(:command, :shift)
     @browser.windows.last.use
    
+    @browser.goto  "#{@base_url}/logout"
     @browser.goto  "#{@base_url}/login"
     @browser = Launchy.open("#{@base_url}/login")
 
