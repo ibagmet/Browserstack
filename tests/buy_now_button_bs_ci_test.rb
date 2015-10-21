@@ -11,7 +11,7 @@ class ItemAddedTest < Test::Unit::TestCase
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Test <<Item Added>>'
+    caps['name'] = 'Test <<Buy Now Button>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
@@ -67,7 +67,7 @@ class ItemAddedTest < Test::Unit::TestCase
     assert_equal(@browser.div(class: 'flash notice').text, "Thank You. We have successfully received your order.")
     @browser.a(class: "btn btn-link btn-left-justify-text").click
     searching_for_hinckley
-    assert_equal("#{base_url}/p/go-forward-faith-biography-president-gordon-b-hinckley-sheri-l-dew-136?variant_id=113262-ebook", @browser.url, "incorrect location")
+    assert_equal("#{base_url}/p/go-forward-faith-biography-president-gordon-b-hinckley-sheri-l-dew-136?variant_id=113421-paperback", @browser.url, "incorrect location")
     @browser.span(text: "eBook").click
     @browser.a(class: "btn btn-lg btn-primary btn-block btn-buy-now text-uppercase").exists?
     @browser.a(class: "btn btn-lg btn-primary btn-block btn-buy-now text-uppercase").click
