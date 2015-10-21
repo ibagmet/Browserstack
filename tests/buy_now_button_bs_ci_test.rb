@@ -69,8 +69,11 @@ class ItemAddedTest < Test::Unit::TestCase
     searching_for_hinckley
     assert_equal("#{base_url}/p/go-forward-faith-biography-president-gordon-b-hinckley-sheri-l-dew-136?variant_id=113421-paperback", @browser.url, "incorrect location")
     @browser.span(text: "eBook").click
-    @browser.a(class: "btn btn-primary btn-lg pull-right btn-quick-checkout").exists?
-    @browser.a(class: "btn btn-primary btn-lg pull-right btn-quick-checkout").click
+    
+    if @browser.a(class: "btn btn-primary btn-lg pull-right btn-quick-checkout").exists? @browser.a(class: "btn btn-primary btn-lg pull-right btn-quick-checkout").click
+    else @browser.a(class: "btn btn-lg btn-primary btn-block btn-buy-now text-uppercase").click
+    end
+
     assert_equal("#{base_url}/checkout/payment", @browser.url, "incorrect location")
     @browser.a(class: "btn btn-primary pull-right btn-continue js-submit-btn").click
     assert_equal("#{base_url}/checkout/confirm", @browser.url, "incorrect location")
