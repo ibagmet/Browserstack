@@ -11,7 +11,7 @@ class WriteAReviewBsCiTest < Test::Unit::TestCase
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Watir WebDriver'
+    caps['name'] = 'Test <<Write a review>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']

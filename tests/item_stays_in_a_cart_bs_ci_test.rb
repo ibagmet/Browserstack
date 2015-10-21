@@ -12,7 +12,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Test ::item stays in a cart::'
+    caps['name'] = 'Test <<Item Stays In a Cart>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
