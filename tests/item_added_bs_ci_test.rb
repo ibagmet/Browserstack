@@ -11,7 +11,7 @@ class ItemAddedTest < Test::Unit::TestCase
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Watir WebDriver'
+    caps['name'] = 'Test ::item added::'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
@@ -47,18 +47,23 @@ class ItemAddedTest < Test::Unit::TestCase
     # @browser.a(text: "Proceed to Checkout").exists?
     # @browser.a(class: "btn btn-primary text-uppercase continue").click
     # assert_equal("#{base_url}/cart", @browser.url, "incorrect location")
-    @browser.close
+    
+    @browser.goto 'http://the-internet.herokuapp.com'
+    @browser.link(:text, 'A/B Testing').click(:command, :shift)
+    @browser.windows.last.use
 
-    @browser = open_@browser
+    @browser.goto "#{base_url}/logout"
     @browser.goto "#{base_url}/login"
     @browser.text_field(name: "spree_user[email]").set email_new
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click
     @browser.goto 'http://deseretbook.net/cart' 
     @browser.a(text: "Marble Christus Statue").exists?
-    @browser.close
-
-    @browser = open_@browser
+    
+    @browser.goto 'http://the-internet.herokuapp.com'
+    @browser.link(:text, 'A/B Testing').click(:command, :shift)
+    @browser.windows.last.use
+    
     @browser.goto "#{base_url}/cart"
     @browser.a(text: "Marble Christus Statue").exists?
     @browser.close
