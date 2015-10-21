@@ -42,13 +42,13 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.goto  "#{@base_url}/cart"
     @browser.a(text: "Jingles 3").exists?
     
-    @browser.goto 'http://the-internet.herokuapp.com'
-    @browser.link(:text, 'A/B Testing').click(:command, :shift)
-    @browser.windows.last.use
+    # @browser.goto 'http://the-internet.herokuapp.com'
+    # @browser.link(:text, 'A/B Testing').click(:command, :shift)
+    # @browser.windows.last.use
    
-    @browser.goto  "#{@base_url}/logout"
-    @browser.goto  "#{@base_url}/login"
-    @browser = Launchy.open("#{@base_url}/login")
+    # @browser.goto  "#{@base_url}/logout"
+    # @browser.goto  "#{@base_url}/login"
+    Launchy.open("#{@base_url}/login")
 
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
