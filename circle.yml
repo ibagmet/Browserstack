@@ -7,7 +7,7 @@ machine:
     BS_USERNAME: "matthewredd"
     BS_AUTHKEY: "SPcNqvdg4Kd4qvjp294S"
     BS_AUTOMATE_PROJECT: "Run on circleCI"
-    BS_AUTOMATE_BUILD: "build No. $CIRCLE_BUILD_NUM for circleCI"
+    BS_AUTOMATE_BUILD: "test No. $CIRCLE_BUILD_NUM for circleCI $data"
     SELENIUM_PLATFORM: WINDOWS 
     SELENIUM_BROWSER: IE 
     SELENIUM_VERSION: 9
@@ -15,11 +15,12 @@ machine:
     BS_AUTOMATE_OS_VERSION: Lion 
     SELENIUM_BROWSER: firefox 
     SELENIUM_VERSION: 20
-
+    SELENIUM_BROWSER: Yandex
+    SELENIUM_VERSION: 14.12
 
 test:
   override:
     #- bundle exec rake test
-    - ./rst tests/item_added_bs_ci_test.rb
-    - ./rst tests/item_stays_in_a_cart_bs_ci_test.rb
+    # - ./rst tests/item_added_bs_ci_test.rb
+    # - ./rst tests/item_stays_in_a_cart_bs_ci_test.rb
     - ./rst tests/write_a_review_bs_ci_test.rb
