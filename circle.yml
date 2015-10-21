@@ -13,13 +13,15 @@ machine:
     SELENIUM_VERSION: 9
     BS_AUTOMATE_OS: "OS X" 
     BS_AUTOMATE_OS_VERSION: Lion 
-    SELENIUM_BROWSER: firefox 
-    SELENIUM_VERSION: 41
+    # SELENIUM_BROWSER: firefox 
+    # SELENIUM_VERSION: 41
+    SELENIUM_BROWSER: IE 
+    SELENIUM_VERSION: 9
 
 test:
   override:
     #- bundle exec rake test
-    - ./rst tests/item_added_bs_ci_test.rb
+    #- ./rst tests/item_added_bs_ci_test.rb
     # - ./rst tests/item_stays_in_a_cart_bs_ci_test.rb
     #- ./rst tests/write_a_review_bs_ci_test.rb
     - ./rst tests/buy_now_button_bs_ci_test.rb
