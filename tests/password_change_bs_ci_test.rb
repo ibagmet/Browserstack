@@ -11,7 +11,7 @@ class PasswordChangeBrCiTest < Test::Unit::TestCase
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Watir WebDriver'
+    caps['name'] = 'Test <<Changing Password>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
@@ -23,7 +23,7 @@ class PasswordChangeBrCiTest < Test::Unit::TestCase
 
   def test_post
     base_url = 'https://deseretbook.net'
-    @browser.goto  'https://deseretbook.net/signup'
+    @browser.goto  "#{base_url}/signup"
     email_name = ::Faker::Internet.safe_email 
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[first_name]").set 'test_name'
@@ -32,8 +32,8 @@ class PasswordChangeBrCiTest < Test::Unit::TestCase
     @browser.text_field(name: "spree_user[password_confirmation]").set 'test123'
     @browser.input(name: "commit").click
     assert(@browser.div(class: 'flash notice').present?)
-    @browser.goto  'https://deseretbook.net/logout'
-    @browser.goto  'https://deseretbook.net/login'
+    @browser.goto  "#{base_url}/logout"
+    @browser.goto  "#{base_url}/login"
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click

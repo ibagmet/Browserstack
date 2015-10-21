@@ -9,7 +9,7 @@ class SimpleTest < Test::Unit::TestCase
 
   def setup
     caps = WebDriver::Remote::Capabilities.new
-    caps['name'] = 'Watir WebDriver'
+    caps['name'] = 'Test <<Setup>>'
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
 
@@ -29,7 +29,7 @@ class SimpleTest < Test::Unit::TestCase
   end
 
   def test_post
-    base_url = 'deseretbook.net'
+    base_url = 'https://deseretbook.net'
     @browser.goto base_url
     
     @browser.link(text: "Login").when_present.click
