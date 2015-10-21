@@ -45,9 +45,13 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     #@browser = open_@browser
     #@browser.open ("#{@base_url}/login")
     #@browser.goto  "#{@base_url}/login"
+    url2 = @base_url/login
+    @browser.link(:text, 'Open This Window').click
+    @browser.driver.switch_to.window(@browser.driver.window_handles[0])
+    popup = @browser.window(:url2, /newwindow/).use
 
-    @browser = Watir::Browser.new
-    @browser.goto  "#{@base_url}/login"
+   
+    #@browser.goto  "#{@base_url}/login"
     #@browser = Launchy.open("#{@base_url}/login")
 
     @browser.text_field(name: "spree_user[email]").set email_name
