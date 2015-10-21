@@ -31,29 +31,7 @@ class SimpleTest < Test::Unit::TestCase
   def test_post
     base_url = 'deseretbook.net'
     @browser.goto base_url
-
-# If Browser("CreationTime:=0").Page("micclass:=Page").WebElement("innertext:=I Understand the Risks").Exist(5) Then
-# Browser("CreationTime:=0").Page("micclass:=Page").WebElement("innertext:=I Understand the Risks").Click
-# Browser("CreationTime:=0").Page("micclass:=Page").WebButton("name:=Add Exception…").Click
-# Browser("CreationTime:=0").Dialog("text:=Add Security Exception").Activate
-# Browser("CreationTime:=0").Dialog("text:=Add Security Exception").GetTextLocation "Confirm Security Exception", x1, y1, x2, y2
-# Browser("CreationTime:=0").Dialog("text:=Add Security Exception").Click (x1+x2)/2, (y1+y2)/2
-# End If
-    sleep(2)
-    # @browser.h2(id: "expertContent").exists?
-    # @browser.h2(id: "expertContent").when_present.click
-    # @browser.button(text: "Add Exception...").click
-    # @browser.button(text: "Confirm Security Exception").exists?
-    # @browser.button(text: "Confirm Security Exception").click
-
-
-    #@browser.button(text: "I Understand the Risks").exists?
-    @browser.button(text: "I Understand the Risks").when_present..click
-    @browser.button(text: "Add Exception...").click
-    @browser.button(text: "Confirm Security Exception").exists?
-    @browser.button(text: "Confirm Security Exception").click
     
-
     @browser.link(text: "Login").when_present.click
     @browser.link(text: "Create a new account").click
 
