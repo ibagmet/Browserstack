@@ -3,6 +3,7 @@ require 'selenium-webdriver'
 require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
+require 'launchy'
 
 class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     include Selenium
@@ -42,8 +43,9 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.a(text: "Jingles 3").exists?
     @browser.close
     #@browser = open_@browser
-    @browser.open ("#{@base_url}/login")
+    #@browser.open ("#{@base_url}/login")
     #@browser.goto  "#{@base_url}/login"
+    @browser = Launchy.open("#{@base_url}/login")
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click
