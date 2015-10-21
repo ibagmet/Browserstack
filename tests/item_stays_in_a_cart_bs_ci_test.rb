@@ -17,12 +17,12 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
 
     @browser = Watir::Browser.new(:remote,
-    :url => "http://ibagmet1:6HbMB1CQ8mdmy1Ys7b9U@hub.browserstack.com/wd/hub",
+    :url => "http://matthewredd:SPcNqvdg4Kd4qvjp294S@hub.browserstack.com/wd/hub",
     :desired_capabilities => caps)
   end
 
   def test_post
-    @base_url = 'https://stage.deseretbook.net'
+    @base_url = 'https://deseretbook.net'
     @browser.goto  "#{@base_url}/signup"
     email_name = ::Faker::Internet.safe_email 
     @browser.text_field(name: "spree_user[email]").set email_name
