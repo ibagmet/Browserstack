@@ -27,8 +27,8 @@ class ItemAddedTest < Test::Unit::TestCase
 
     email_new = ::Faker::Internet.safe_email
     @browser.text_field(name: "spree_user[email]").set email_new
-    @browser.text_field(name: "spree_user[first_name]").set 'test_name'
-    @browser.text_field(name: "spree_user[last_name]").set 'test_last_name'
+    @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
+    @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.text_field(name: "spree_user[password_confirmation]").set 'test123'
     @browser.input(name: "commit").click
@@ -44,9 +44,6 @@ class ItemAddedTest < Test::Unit::TestCase
     assert_equal("#{base_url}/p/marble-christus-statue-deseret-book-company-41038?variant_id=62304-19-inch", @browser.url, "incorrect location")
     @browser.button(text: "Add To Cart").click
     assert_equal("#{base_url}/item_added", @browser.url, "incorrect location")
-    # @browser.a(text: "Proceed to Checkout").exists?
-    # @browser.a(class: "btn btn-primary text-uppercase continue").click
-    # assert_equal("#{base_url}/cart", @browser.url, "incorrect location")
     
     @browser.goto 'http://the-internet.herokuapp.com'
     @browser.link(:text, 'A/B Testing').click(:command, :shift)
@@ -58,14 +55,14 @@ class ItemAddedTest < Test::Unit::TestCase
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.input(name: "commit").click
     @browser.goto 'http://deseretbook.net/cart' 
-    @browser.a(text: "Marble Christus Statue").exists?
+    assert(@browser.a(text: "Marble Christus Statue").exists?)
     
     @browser.goto 'http://the-internet.herokuapp.com'
     @browser.link(:text, 'A/B Testing').click(:command, :shift)
     @browser.windows.last.use
 
     @browser.goto "#{base_url}/cart"
-    @browser.a(text: "Marble Christus Statue").exists?
+    assert(@browser.a(text: "Marble Christus Statue").exists?)
     @browser.close
   end
 end
