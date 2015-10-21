@@ -41,7 +41,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.goto  "#{@base_url}/cart"
     @browser.a(text: "Jingles 3").exists?
     @browser.close
-    @browser = open_browser
+    @browser = open_@browser
     @browser.goto  "#{@base_url}/login"
     @browser.text_field(name: "spree_user[email]").set email_name
     @browser.text_field(name: "spree_user[password]").set 'test123'

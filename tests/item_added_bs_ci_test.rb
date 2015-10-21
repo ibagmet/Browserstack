@@ -44,12 +44,12 @@ class ItemAddedTest < Test::Unit::TestCase
     assert_equal("#{base_url}/p/marble-christus-statue-deseret-book-company-41038?variant_id=62304-19-inch", @browser.url, "incorrect location")
     @browser.button(text: "Add To Cart").click
     assert_equal("#{base_url}/item_added", @browser.url, "incorrect location")
-    @browser.a(text: "Proceed to Checkout").exists?
-    @browser.a(class: "btn btn-primary text-uppercase continue").click
-    assert_equal("#{base_url}/cart", @browser.url, "incorrect location")
+    # @browser.a(text: "Proceed to Checkout").exists?
+    # @browser.a(class: "btn btn-primary text-uppercase continue").click
+    # assert_equal("#{base_url}/cart", @browser.url, "incorrect location")
     @browser.close
 
-    @browser = open_browser
+    @browser = open_@browser
     @browser.goto "#{base_url}/login"
     @browser.text_field(name: "spree_user[email]").set email_new
     @browser.text_field(name: "spree_user[password]").set 'test123'
@@ -58,7 +58,7 @@ class ItemAddedTest < Test::Unit::TestCase
     @browser.a(text: "Marble Christus Statue").exists?
     @browser.close
 
-    @browser = open_browser
+    @browser = open_@browser
     @browser.goto "#{base_url}/cart"
     @browser.a(text: "Marble Christus Statue").exists?
     @browser.close
