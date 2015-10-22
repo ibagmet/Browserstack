@@ -39,12 +39,9 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{base_url}/item_added", @browser.url, "incorrect location")
     
-    # if @browser.a(class: "btn btn-primary btn-lg pull-right btn-quick-checkout").exists? 
-    # then @browser.a(class: "btn btn-primary btn-lg pull-right btn-quick-checkout").click
-    # else @browser.a(class: "btn btn-lg btn-primary btn-block btn-buy-now text-uppercase").click
-    # end
     sleep(2)
-    @browser.a(class: "btn btn-primary text-uppercase continue").click
+    #@browser.a(class: "btn btn-primary text-uppercase continue").click
+    @browser.a(text: "Proceed to Checkout").click
     
     assert_equal("#{base_url}/cart", @browser.url, "incorrect location")
     #browser.a(text: "Close").click
