@@ -54,7 +54,7 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
 
     @browser.a(text: "Enter coupon code").when_present.click
     sleep(1) #animation
-    @browser.text_field(name: "order[coupon_code]").set 'test123_50'
+    @browser.text_field(name: "coupon_code").set 'test123_50'
     @browser.button(text: "Apply Coupon Code").click
     @browser.div(text: "The coupon code was successfully applied to your order.").exists?
 
@@ -62,7 +62,7 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
 
     @browser.a(text: "Enter coupon code").when_present.click
     sleep(1) #animation
-    @browser.text_field(name: "order[coupon_code]").set 'test123_one_more'
+    @browser.text_field(name: "coupon_code").set 'test123_one_more'
     @browser.button(text: "Apply Coupon Code").click
     @browser.div(text: "The coupon code was successfully applied to your order.").exists?
 
@@ -70,19 +70,19 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
 
     @browser.a(text: "Enter coupon code").when_present.click
     sleep(1) #animation
-    @browser.text_field(name: "order[coupon_code]").set 'smth_strange'
+    @browser.text_field(name: "coupon_code").set 'smth_strange'
     @browser.button(text: "Apply Coupon Code").when_present.click
     @browser.div(text: "The coupon code you entered doesn't exist. Please try again.").exists?
 
-    @browser.text_field(name: "order[coupon_code]").set 'test123_expired'
+    @browser.text_field(name: "coupon_code").set 'test123_expired'
     @browser.button(text: "Apply Coupon Code").when_present.click
     @browser.div(text: "The coupon code is expired").exists?
 
-    @browser.text_field(name: "order[coupon_code]").set 'test_only_for_cristmas'
+    @browser.text_field(name: "coupon_code").set 'test_only_for_cristmas'
     @browser.button(text: "Apply Coupon Code").when_present.click
     @browser.div(text: "This coupon code could not be applied to the cart at this time.").exists?
     sleep(1)
-    @browser.text_field(name: "order[coupon_code]").set 'test123_50'
+    @browser.text_field(name: "coupon_code").set 'test123_50'
     @browser.button(text: "Apply Coupon Code").when_present.click
     @browser.div(text: "The coupon code has already been applied to this order").exists?
 
