@@ -4,7 +4,7 @@ require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
 
-class PasswordChangeBrCiTest < Test::Unit::TestCase
+class PasswordChangeBrCiTest < Test::Unit::TestCase   #redirect problem - to stage.deseretbook.com
     include Selenium
 
   def setup

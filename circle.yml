@@ -25,5 +25,6 @@ test:
     # - ./rst tests/item_stays_in_a_cart_bs_ci_test.rb
     #- ./rst tests/write_a_review_bs_ci_test.rb
     # - ./rst tests/buy_now_button_bs_ci_test.rb
-    - ./rst tests/password_change_bs_ci_test.rb
+    #- ./rst tests/password_change_bs_ci_test.rb
     # - ./rst tests/setup_bs_ci_test.rb
+    - ./rst tests/coupons_bs_ci_test.rb
