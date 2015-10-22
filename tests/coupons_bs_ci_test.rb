@@ -92,6 +92,7 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
     @browser.button(class: "btn btn-primary btn-lg pull-right btn-continue").when_present.click
     assert_equal(@browser.div(class: 'flash notice').text, "Thank You. We have successfully received your order.")
     @browser.goto "#{base_url}/logout"
+    @browser.quit
   end
 
   private
