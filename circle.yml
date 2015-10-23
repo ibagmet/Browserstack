@@ -14,7 +14,7 @@ machine:
     BS_AUTOMATE_OS: "OS X" 
     BS_AUTOMATE_OS_VERSION: Lion 
     SELENIUM_BROWSER: firefox 
-    SELENIUM_VERSION: 41
+    SELENIUM_VERSION: 20
     # SELENIUM_BROWSER: IE 
     # SELENIUM_VERSION: 11
 
@@ -28,4 +28,4 @@ test:
     - ./rst tests/password_change_bs_ci_test.rb
     # - ./rst tests/setup_bs_ci_test.rb
     # - ./rst tests/coupons_bs_ci_test.rb
-    
+
