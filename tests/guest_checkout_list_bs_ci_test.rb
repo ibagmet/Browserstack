@@ -192,4 +192,32 @@ NUMBERS = {
     result['card_number']
   end
 
+def order_log(field, value = nil)
+    return unless defined?(@@orders) # don't log unless #start_new_order_log called
+    return unless @@orders.last[:start] # can't add to order not started.
+    return if @@orders.last[:finished] # can't add to order record once finished.
+    values = {}
+
+    # populate values hash
+    if field.is_a?(Hash)
+      field.each{|k,v| values[k] = v }
+    else
+      values[field.to_sym] = value
+    end
+
+    # store items in values hash in @@orders
+    values.each do |k,v|
+      if (existing_value = @@orders.last[k.to_sym])
+        if existing_value.is_a? Array
+          @@orders.last[k.to_sym] << v
+        else
+          # storing a duplicate key; turn this in to an array and store both
+          @@orders.last[k.to_sym] = [existing_value, v]
+        end
+      else
+        @@orders.last[k.to_sym] = v
+      end
+    end
+  end
+
 end
