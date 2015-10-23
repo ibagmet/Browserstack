@@ -65,7 +65,7 @@ NUMBERS = {
     assert_equal("#{@base_url}/p/dining-prophets-lion-house-92869?variant_id=2692-hardcover", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
-    @browser.a(text: "Proceed to Checkout").click
+    go_to_cart
     assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
     assert_equal("#{@base_url}/checkout/registration", @browser.url, "incorrect location")
@@ -84,7 +84,7 @@ NUMBERS = {
     @browser.span(text: "eBook").click
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
-    @browser.a(text: "Proceed to Checkout").click
+    go_to_cart
     assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
     assert_equal("#{@base_url}/checkout/registration", @browser.url, "incorrect location")
@@ -157,6 +157,11 @@ NUMBERS = {
     puts @browser.title
     @browser.goto  "#{@base_url}/logout"
     @browser.quit
+  end
+
+  def go_to_cart
+    @browser.a(text: "Cart").click
+    assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
   end
 
   def gift_card_number(type: :valid, amount: nil)
