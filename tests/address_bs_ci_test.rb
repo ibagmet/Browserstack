@@ -94,14 +94,14 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.a(text: "Add new address").click
     assert_equal("https://deseretbook.net/addresses/new", @browser.url, "incorrect location")
     assert @browser.text.include?("New Address")
-    browser.text_field(name: "address[firstname]").set Faker::Name.name
-    browser.text_field(name: "address[lastname]").set  Faker::Name.last_name
-    browser.text_field(name: "address[address1]").set Faker::Address.street_address
-    browser.text_field(name: "address[city]").set Faker::Address.city
-    browser.select_list(name: "address[state_id]").select 'Hawaii'
-    browser.text_field(name: "address[zipcode]").set Faker::Address.zip
-    browser.select_list(name: "address[country_id]").select 'United States of America'
-    browser.text_field(name: "address[phone]").set Faker::PhoneNumber.cell_phone
+    @browser.text_field(name: "address[firstname]").set Faker::Name.name
+    @browser.text_field(name: "address[lastname]").set  Faker::Name.last_name
+    @browser.text_field(name: "address[address1]").set Faker::Address.street_address
+    @browser.text_field(name: "address[city]").set Faker::Address.city
+    @browser.select_list(name: "address[state_id]").select 'Hawaii'
+    @browser.text_field(name: "address[zipcode]").set Faker::Address.zip
+    @browser.select_list(name: "address[country_id]").select 'United States of America'
+    @browser.text_field(name: "address[phone]").set Faker::PhoneNumber.cell_phone
   end
 
   def confirm_address
