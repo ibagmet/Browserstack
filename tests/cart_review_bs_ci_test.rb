@@ -27,11 +27,9 @@ class CartReviewBrCiTest < Test::Unit::TestCase
     searching_for_hinckley
     searching_for_hinckley
     go_to_cart
-
     quantity = @browser.text_field(class: 'line_item_quantity').value.to_i
     cart_item_price = @browser.td(class: 'cart-item-price').text.split("\n").first.gsub(/[^0-9\.]/, '').to_f
     cart_item_total = @browser.td(class: 'cart-item-total').text.split("\n").first.gsub(/[^0-9\.]/, '').to_f
-
     assert(quantity == 2)
     assert((cart_item_price * quantity) == cart_item_total)
     @browser.text_field(class: 'line_item_quantity').set(1)
@@ -48,7 +46,6 @@ class CartReviewBrCiTest < Test::Unit::TestCase
     quantity = @browser.text_field(class: 'line_item_quantity').value.to_i
     cart_item_price = @browser.td(class: 'cart-item-price').text.split("\n").first.gsub(/[^0-9\.]/, '').to_f
     cart_item_total = @browser.td(class: 'cart-item-total').text.split("\n").first.gsub(/[^0-9\.]/, '').to_f
-
     assert(quantity == 1)
     assert(cart_item_price * quantity == cart_item_total)
     puts @browser.title
