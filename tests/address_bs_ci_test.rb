@@ -3,7 +3,6 @@ require 'selenium-webdriver'
 require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
-require 'test_helper'
 
 class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     include Selenium
