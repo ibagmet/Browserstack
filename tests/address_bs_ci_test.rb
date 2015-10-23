@@ -66,7 +66,6 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     }
     address_tr.find_elements(tag_name: 'a').detect{|a| a.text == 'Remove'}.click
     @browser.driver.switch_to.alert.accept
-
     @browser.a(text: "Addresses").click
     assert_equal("#{base_url}/account", @browser.url, "incorrect location")
     assert(
