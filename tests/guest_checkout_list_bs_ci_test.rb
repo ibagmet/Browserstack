@@ -149,26 +149,15 @@ NUMBERS = {
   end
 
   def empty_cart_t
-    @browser.goto  "#{base_url}/cart"
+    @browser.goto  "#{@base_url}/cart"
     @browser.input(value: "Empty Cart").click
   end
 
   def that_s_it
     puts @browser.title
-    @browser.goto  "#{base_url}/logout"
+    @browser.goto  "#{@base_url}/logout"
     @browser.quit
   end
-
-
-
-
-# module GiftCardHelper
-#   # TODO instead of a static number for :insufficient_funds, just generate
-#   # a gift card with a zero-dollar balance.
-  # NUMBERS = {
-  #   insufficient_funds: %w[ R299267428027 ],
-  #   invalid: %w[ R99999INVALID ]
-  # }
 
   def gift_card_number(type: :valid, amount: nil)
     case type
