@@ -90,6 +90,6 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
 
   def go_to_cart
     @browser.a(text: "Cart").click
-    assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
+    assert_equal("https://deseretbook.net/cart", @browser.url, "incorrect location")
   end
 end
