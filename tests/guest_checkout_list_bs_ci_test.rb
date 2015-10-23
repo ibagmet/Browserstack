@@ -197,7 +197,5 @@ NUMBERS = {
     order_log(gift_card_transaction: result)
     result['card_number']
   end
-end
-
 
 end
