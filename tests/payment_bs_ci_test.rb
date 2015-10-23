@@ -18,7 +18,7 @@ NUMBERS = {
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Test <<Guest CheckOut List>>'
+    caps['name'] = 'Test <<P_A_Y_M_E_N_T>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
@@ -131,6 +131,7 @@ NUMBERS = {
     @browser.button(class: "btn btn-primary js-apply-gift-card-btn").click
     assert_equal(@browser.div(class: "flash success").text, "Gift Card was successfully applied to the order.")
     logout
+    that_s_it
   end
 
   private
