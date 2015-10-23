@@ -51,8 +51,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     confirmation_button
     confirmation_button
     assert_equal("#{@base_url}/checkout/delivery", @browser.url, "incorrect location")
-    sum = @browser.span(class: "promotion-standard").text 
-    @browser.span(text: "#{sum}").click
+    delivery_options
     @browser.button(class: 'btn btn-primary pull-right btn-continue').click
     assert_equal("#{@base_url}/checkout/payment", @browser.url, "incorrect location")
     @browser.text_field(id: "name_on_card_2").set 'test user'
@@ -76,8 +75,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     confirmation_button
     confirmation_button
     assert_equal("#{@base_url}/checkout/delivery", @browser.url, "incorrect location")
-    sum = @browser.span(class: "promotion-standard").text 
-    @browser.span(text: "#{sum}").click
+    delivery_options
     @browser.button(class: "btn btn-primary pull-right btn-continue").click
     assert_equal("#{@base_url}/checkout/payment", @browser.url, "incorrect location")
     finishing_part
@@ -149,5 +147,10 @@ private
 
   def confirmation_button
     @browser.button(class: "btn btn-primary pull-right js-form-validate btn-continue").click
+  end
+
+  def delivery_options
+    sum = @browser.span(class: "promotion-standard").text 
+    @browser.span(text: "#{sum}").click
   end
 end
