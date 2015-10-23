@@ -73,7 +73,7 @@ class AccountWithCasesBrCiTest < Test::Unit::TestCase
     @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
     @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name
     password = ::Faker::Number.number(0)
-    @browser.text_field(name: "spree_user[password]").set password@
+    @browser.text_field(name: "spree_user[password]").set password
     @browser.text_field(name: "spree_user[password_confirmation]").set password
     @browser.input(name: "commit").click
     assert_equal("#{@base_url}/signup", @browser.url, "incorrect location")
