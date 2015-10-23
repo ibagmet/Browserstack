@@ -28,6 +28,7 @@ test:
     # - ./rst tests/password_change_bs_ci_test.rb
     # - ./rst tests/setup_bs_ci_test.rb
     # - ./rst tests/coupons_bs_ci_test.rb
-    - ./rst tests/address_bs_ci_test.rb
+    # - ./rst tests/address_bs_ci_test.rb
+    - ./rst tests/address_check_list_bs_ci_test.rb
 
 
