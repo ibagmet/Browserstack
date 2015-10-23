@@ -50,7 +50,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     billing_address
     confirmation_button
     confirmation_button
-    assert_equal("#{base_url}/checkout/delivery", @browser.url, "incorrect location")
+    assert_equal("#{@base_url}/checkout/delivery", @browser.url, "incorrect location")
     @browser.span(text: "$71.90").click
     @browser.button(class: 'btn btn-primary pull-right btn-continue').click
     assert_equal("#{@base_url}/checkout/payment", @browser.url, "incorrect location")
