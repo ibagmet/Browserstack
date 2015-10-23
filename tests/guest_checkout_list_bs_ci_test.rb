@@ -177,7 +177,7 @@ NUMBERS = {
   def get_new_gift_card_number(amount)
     body = { amount: amount.to_f.round(2) }.to_json
     # puts "Gift Card request: #{body}"
-    result = HTTParty.post("#{base_url}/api/fake_gift_card/create",
+    result = HTTParty.post("#{@base_url}/api/fake_gift_card/create",
       body: body,
       verify: false, # SSL cert on stage may be invalid, so don't try to validate it.
       headers: {
