@@ -57,17 +57,13 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
     @browser.text_field(name: "coupon_code").set 'test123_50'
     @browser.button(text: "Apply Coupon Code").click
     @browser.div(text: "The coupon code was successfully applied to your order.").exists?
-
-    #return_option #nesessary for firefox - after applying valid cupons - makes disable buttons
-
+    
     @browser.a(text: "Enter coupon code").when_present.click
     sleep(1) #animation
     @browser.text_field(name: "coupon_code").set 'test123_one_more'
     @browser.button(text: "Apply Coupon Code").click
     @browser.div(text: "The coupon code was successfully applied to your order.").exists?
-
-    #return_option #nesessary for firefox - after applying valid cupons - makes disable buttons
-
+    
     @browser.a(text: "Enter coupon code").when_present.click
     sleep(1) #animation
     @browser.text_field(name: "coupon_code").set 'smth_strange'
@@ -86,7 +82,6 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
     @browser.button(text: "Apply Coupon Code").when_present.click
     @browser.div(text: "The coupon code has already been applied to this order").exists?
 
-    #@browser.text_field(name: "order[coupon_code]").set '' #nesessary to pass  through
     @browser.button(class: "btn btn-primary pull-right btn-continue js-submit-btn").when_present.click
     assert_equal("#{base_url}/checkout/confirm", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-primary btn-lg pull-right btn-continue").when_present.click
