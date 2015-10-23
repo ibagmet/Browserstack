@@ -18,7 +18,7 @@ NUMBERS = {
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Test <<Address Check List>>'
+    caps['name'] = 'Test <<Guest CheckOut List>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
@@ -141,7 +141,6 @@ NUMBERS = {
     assert_equal(@browser.div(class: 'flash notice').text, "Thank You. We have successfully received your order.")
   end     
 
-
   def confirmation_of_oder
     assert_equal("#{@base_url}/checkout/confirm", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-primary btn-lg pull-right btn-continue").click
@@ -192,7 +191,7 @@ NUMBERS = {
     result['card_number']
   end
 
-def order_log(field, value = nil)
+  def order_log(field, value = nil)
     return unless defined?(@@orders) # don't log unless #start_new_order_log called
     return unless @@orders.last[:start] # can't add to order not started.
     return if @@orders.last[:finished] # can't add to order record once finished.

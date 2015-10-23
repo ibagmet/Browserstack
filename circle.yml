@@ -32,7 +32,8 @@ test:
     # - ./rst tests/address_check_list_bs_ci_test.rb
     # - ./rst tests/account_with_cases_bs_ci_test.rb
     # - ./rst tests/cart_review_bs_ci_test.rb
-    - ./rst tests/guest_checkout_list_bs_ci_test.rb
+    # - ./rst tests/guest_checkout_list_bs_ci_test.rb
+    - ./rst tests/payment_bs_ci_test.rb
 
 
 
