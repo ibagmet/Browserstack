@@ -9,6 +9,11 @@ require 'json'
 class GuessListBrCiTest < Test::Unit::TestCase
     include Selenium
 
+NUMBERS = {
+    insufficient_funds: %w[ R299267428027 ],
+    invalid: %w[ R99999INVALID ]
+  }
+
   def setup
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
@@ -166,12 +171,6 @@ class GuessListBrCiTest < Test::Unit::TestCase
   # }
 
   def gift_card_number(type: :valid, amount: nil)
-     
-     NUMBERS = {
-    insufficient_funds: %w[ R299267428027 ],
-    invalid: %w[ R99999INVALID ]
-  }
-
     case type
     when :valid
       get_new_gift_card_number(amount)
