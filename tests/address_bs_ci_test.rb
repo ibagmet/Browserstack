@@ -84,7 +84,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
 
   def address_in_ckecking 
     @browser.a(text: "Addresses").click
-    assert_equal("#{base_url}/account", @browser.url, "incorrect location")
+    assert_equal("https://deseretbook.net/account", @browser.url, "incorrect location")
     assert @browser.text.include?("My Account")
   end
 
@@ -92,7 +92,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     address_in_ckecking
     sleep(1) #animation
     @browser.a(text: "Add new address").click
-    assert_equal("#{base_url}/addresses/new", @browser.url, "incorrect location")
+    assert_equal("https://deseretbook.net/addresses/new", @browser.url, "incorrect location")
     assert @browser.text.include?("New Address")
     browser.text_field(name: "address[firstname]").set Faker::Name.name
     browser.text_field(name: "address[lastname]").set  Faker::Name.last_name
@@ -106,7 +106,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
 
   def confirm_address
     @browser.input(name: "commit").click
-    assert_equal("#{base_url}/account", @browser.url, "incorrect location")
+    assert_equal("https://deseretbook.net/account", @browser.url, "incorrect location")
     assert(@browser.div(class: 'flash notice').present?) 
   end
   end
