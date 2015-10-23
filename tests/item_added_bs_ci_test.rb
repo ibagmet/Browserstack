@@ -4,7 +4,7 @@ require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
 
-class ItemAddedTest < Test::Unit::TestCase
+class ItemAddedBsCiTest < Test::Unit::TestCase
     include Selenium
 
   def setup
@@ -24,9 +24,7 @@ class ItemAddedTest < Test::Unit::TestCase
   def test_item_in_cart
     base_url = 'https://deseretbook.net'
     @browser.goto "#{base_url}/signup"
-
-    email_new = ::Faker::Internet.safe_email
-    @browser.text_field(name: "spree_user[email]").set email_new
+    @browser.text_field(name: "spree_user[email]").set ::Faker::Internet.email
     @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
     @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name
     @browser.text_field(name: "spree_user[password]").set 'test123'

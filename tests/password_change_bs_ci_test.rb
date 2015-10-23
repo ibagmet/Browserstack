@@ -24,8 +24,7 @@ class PasswordChangeBrCiTest < Test::Unit::TestCase   #redirect problem - to sta
   def test_post
     base_url = 'https://deseretbook.net'
     @browser.goto  "#{base_url}/signup"
-    email_name = ::Faker::Internet.safe_email 
-    @browser.text_field(name: "spree_user[email]").set email_name
+    @browser.text_field(name: "spree_user[email]").set ::Faker::Internet.email 
     @browser.text_field(name: "spree_user[first_name]").set 'test_name'
     @browser.text_field(name: "spree_user[last_name]").set 'test_last_name'
     @browser.text_field(name: "spree_user[password]").set 'test123'

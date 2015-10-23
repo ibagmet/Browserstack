@@ -4,7 +4,7 @@ require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
 
-class ItemStaysInACartBrCiTest < Test::Unit::TestCase
+class AddressCheckListBrCiTest < Test::Unit::TestCase
     include Selenium
 
   def setup
@@ -24,7 +24,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
 
   def test_address_default
     @browser.goto "#{@base_url}/signup"
-    email_new = ::Faker::Internet.safe_email
+    email_new = ::Faker::Internet.email
     @browser.text_field(name: "spree_user[email]").set email_new
     @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
     @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name

@@ -29,7 +29,7 @@ test:
     # - ./rst tests/setup_bs_ci_test.rb
     # - ./rst tests/coupons_bs_ci_test.rb
     # - ./rst tests/address_bs_ci_test.rb
-    # - ./rst tests/address_check_list_bs_ci_test.rb
+    - ./rst tests/address_check_list_bs_ci_test.rb
     - ./rst tests/account_with_cases_bs_ci_test.rb
 
 

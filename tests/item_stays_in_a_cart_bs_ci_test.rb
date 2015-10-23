@@ -25,7 +25,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
   def test_post
     @base_url = 'https://deseretbook.net'
     @browser.goto  "#{@base_url}/signup"
-    @email_name = ::Faker::Internet.safe_email 
+    @email_name = ::Faker::Internet.email 
     @browser.text_field(name: "spree_user[email]").set @email_name
     @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
     @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name

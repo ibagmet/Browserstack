@@ -4,7 +4,7 @@ require 'test/unit'
 require 'watir-webdriver'
 require 'faker'
 
-class ItemStaysInACartBrCiTest < Test::Unit::TestCase
+class AccountWithCasesBrCiTest < Test::Unit::TestCase
     include Selenium
 
   def setup
@@ -30,6 +30,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     'Expected to find <strong> tag with text "Login as Existing Customer" but did not.'
     )
     @browser.goto "#{@base_url}/logout"
+    @browser.quit
   end
 
   def test_login_bottom_link
@@ -39,6 +40,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     assert(@browser.div(class: 'flash error').present?)
     assert(@browser.text =~ /Invalid email or password./)
     @browser.goto "#{@base_url}/logout"
+    @browser.quit
   end 
 
   def test_new_account_link
@@ -50,6 +52,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     'Expected to find <div> tag with text "New Customer" but did not.'
     )
     @browser.goto "#{@base_url}/logout"
+    @browser.quit
   end 
 
   def test_fill_out_form
@@ -62,6 +65,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.text_field(name: "spree_user[password_confirmation]").set password
     @browser.input(name: "commit").click
     assert(@browser.div(class: 'flash notice').present?)
+    @browser.quit
   end
 
   def test_failure_cases_invaild_password
@@ -77,6 +81,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.strong(text: '1 error prohibited this record from being saved').exists?,
     'Expected to find <strong> tag with text "1 error prohibited this record from being saved" but did not.'
     )
+    @browser.quit
   end
 
   def test_failure_cases_invaild_email
@@ -89,6 +94,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.strong(text: '1 error prohibited this record from being saved').exists?,
     'Expected to find <strong> tag with text "1 error prohibited this record from being saved" but did not.'
     )
+    @browser.quit
   end
 
   def test_failure_cases_password_fields_do_not_match
@@ -104,5 +110,6 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.strong(text: '1 error prohibited this record from being saved').exists?,
     'Expected to find <strong> tag with text "1 error prohibited this record from being saved" but did not.'
     )
+    @browser.quit
   end
 end
