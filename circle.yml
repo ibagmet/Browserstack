@@ -27,10 +27,12 @@ test:
     # - ./rst tests/buy_now_button_bs_ci_test.rb
     # - ./rst tests/password_change_bs_ci_test.rb
     # - ./rst tests/setup_bs_ci_test.rb
-    - ./rst tests/coupons_bs_ci_test.rb
+    # - ./rst tests/coupons_bs_ci_test.rb
     # - ./rst tests/address_bs_ci_test.rb
     # - ./rst tests/address_check_list_bs_ci_test.rb
     # - ./rst tests/account_with_cases_bs_ci_test.rb
     # - ./rst tests/cart_review_bs_ci_test.rb
+    - ./rst tests/guest_checkout_list_bs_ci_test.rb
+
 
 
