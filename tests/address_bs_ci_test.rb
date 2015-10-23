@@ -27,8 +27,8 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.link(text: "Create a new account").click
     email_new = ::Faker::Internet.safe_email
     @browser.text_field(name: "spree_user[email]").set email_new
-    @browser.text_field(name: "spree_user[first_name]").set 'test'
-    @browser.text_field(name: "spree_user[last_name]").set 'user'
+    @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
+    @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name
     @browser.text_field(name: "spree_user[password]").set 'test123'
     @browser.text_field(name: "spree_user[password_confirmation]").set 'test123'
     @browser.form(id: "new_spree_user").when_present.submit
