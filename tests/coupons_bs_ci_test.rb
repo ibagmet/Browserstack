@@ -38,11 +38,7 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
     @browser.a(text: "Hardcover").click
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{base_url}/item_added", @browser.url, "incorrect location")
-    
-    sleep(2)
-    #@browser.a(class: "btn btn-primary text-uppercase continue").click
-    @browser.a(text: "Proceed to Checkout").click
-    
+    go_to_cart
     assert_equal("#{base_url}/cart", @browser.url, "incorrect location")
     #browser.a(text: "Close").click
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").when_present.click
@@ -92,9 +88,8 @@ class WriteAReviewTestForBrowserstack < Test::Unit::TestCase
 
   private
 
-  def return_option
-    @browser.a(text: "Delivery").click
-    assert_equal("#{base_url}/checkout/delivery", @browser.url, "incorrect location")
-    @browser.button(class: "btn btn-primary pull-right btn-continue").click
+  def go_to_cart
+    @browser.a(text: "Cart").click
+    assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
   end
 end
