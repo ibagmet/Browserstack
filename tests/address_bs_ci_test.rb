@@ -11,7 +11,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     caps = WebDriver::Remote::Capabilities.new
     caps['project'] = ENV['BS_AUTOMATE_PROJECT'] if ENV['BS_AUTOMATE_PROJECT']
     caps['build'] = ENV['BS_AUTOMATE_BUILD'] if ENV['BS_AUTOMATE_BUILD']
-    caps['name'] = 'Test <<Item Stays In a Cart>>'
+    caps['name'] = 'Test <<Address>>'
     caps['platform'] = ENV['SELENIUM_PLATFORM'] || 'ANY'
     caps['browser'] = ENV['SELENIUM_BROWSER'] || 'chrome'
     caps['browser_version'] = ENV['SELENIUM_VERSION'] if ENV['SELENIUM_VERSION']
@@ -106,6 +106,6 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
   def confirm_address
     @browser.input(name: "commit").click
     assert_equal("https://deseretbook.net/account", @browser.url, "incorrect location")
-    assert(@browser.div(class: 'flash notice').present?) 2
+    assert(@browser.div(class: 'flash notice').present?)
   end
 end
