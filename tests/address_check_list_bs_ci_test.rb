@@ -79,6 +79,8 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.button(class: "btn btn-primary pull-right btn-continue").click
     assert_equal("#{@base_url}/checkout/payment", @browser.url, "incorrect location")
     finishing_part
+    puts @browser.title
+    @browser.quit
   end
 
 private
@@ -127,12 +129,8 @@ private
     assert_equal("#{@base_url}/p/marble-christus-statue-deseret-book-company-41038?variant_id=62304-19-inch", @browser.url, "incorrect location")
     @browser.button(text: "Add To Cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
-    
-    if @browser.a(text: "Proceed to Checkout").exists? #depends on ver. on browser
-    then @browser.a(text: "Proceed to Checkout").click
-    else @browser.a(class: "btn btn-primary text-uppercase continue").click
-    end
-
+    @browser.goto "#{@base_url}/Cart"
+    assert_equal("#{@base_url}/Cart", @browser.url, "incorrect location")
   end
 
   def changing_address
