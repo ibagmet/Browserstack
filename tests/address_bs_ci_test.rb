@@ -54,7 +54,6 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     @browser.select_list(name: "address[country_id]").select 'United States of America'
     @browser.text_field(name: "address[phone]").set '555-5555'
     confirm_address
-
     creating_fake_address_number_2
     confirm_address
     address_in_ckecking 
@@ -75,7 +74,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     'Expected to find <h3> tag with text "Saved Addresses" but did not.'
     )
     @browser.driver.page_source.include? 'Munich'
-    @browser.goto "#{@base_url}/logout"
+    @browser.goto "#{base_url}/logout"
     puts @browser.title
     @browser.quit
   end
@@ -107,6 +106,6 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
   def confirm_address
     @browser.input(name: "commit").click
     assert_equal("https://deseretbook.net/account", @browser.url, "incorrect location")
-    assert(@browser.div(class: 'flash notice').present?) 
+    assert(@browser.div(class: 'flash notice').present?) 2
   end
-  end
+end
