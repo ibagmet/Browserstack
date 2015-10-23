@@ -130,7 +130,7 @@ private
     @browser.button(text: "Add To Cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
     @browser.a(text: "Cart").click
-    assert_equal("#{@base_url}/Cart", @browser.url, "incorrect location")
+    assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
   end
 
   def changing_address
