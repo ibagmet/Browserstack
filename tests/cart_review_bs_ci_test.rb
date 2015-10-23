@@ -69,6 +69,7 @@ class CartReviewBrCiTest < Test::Unit::TestCase
   end
 
   def test_empty_cart_link
+    @browser.goto "#{@base_url}"
     searching_for_hinckley
     go_to_cart 
     @browser.input(value: 'Empty Cart').click
