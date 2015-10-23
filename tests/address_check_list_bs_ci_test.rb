@@ -54,7 +54,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     #@browser.span(text: "$71.90").click
     #@browser.strong(text: "Priority (4-6 Business Days):").click
     sum = @browser.span(class: "promotion-standard").text 
-    @browser.span(text: "sum").click
+    @browser.span(text: "#{sum}").click
 
 
     @browser.button(class: 'btn btn-primary pull-right btn-continue').click
@@ -83,7 +83,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
     #@browser.span(text: "$49.90").click
     #@browser.strong(text: "Express (3-5 Business Days):").click
     sum = @browser.span(class: "promotion-standard").text 
-    @browser.span(text: "sum").click
+    @browser.span(text: "#{sum}").click
     @browser.button(class: "btn btn-primary pull-right btn-continue").click
     assert_equal("#{@base_url}/checkout/payment", @browser.url, "incorrect location")
     finishing_part
