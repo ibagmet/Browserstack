@@ -129,8 +129,8 @@ private
     assert_equal("#{@base_url}/p/marble-christus-statue-deseret-book-company-41038?variant_id=62304-19-inch", @browser.url, "incorrect location")
     @browser.button(text: "Add To Cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
-    @browser.goto "#{@base_url}/Cart"
-    #assert_equal("#{@base_url}/Cart", @browser.url, "incorrect location")
+    @browser.a(text: "Cart").click
+    assert_equal("#{@base_url}/Cart", @browser.url, "incorrect location")
   end
 
   def changing_address
