@@ -24,13 +24,6 @@ class CartReviewBrCiTest < Test::Unit::TestCase
 
   def test_add_twice_to_cart
     @browser.goto "#{@base_url}"
-    # @browser.text_field(name: "spree_user[email]").set ::Faker::Internet.email
-    # @browser.text_field(name: "spree_user[first_name]").set ::Faker::Name.first_name
-    # @browser.text_field(name: "spree_user[last_name]").set ::Faker::Name.last_name
-    # password = ::Faker::Number.number(5)
-    # @browser.text_field(name: "spree_user[password]").set password
-    # @browser.text_field(name: "spree_user[password_confirmation]").set password
-    # @browser.input(name: "commit").click
     searching_for_hinckley
     searching_for_hinckley
     go_to_cart
@@ -95,7 +88,7 @@ private
     assert(@browser.h1(text: "Search results for 'Go Forward with Faith: The Biography of President Gordon B. Hinckley'").exists?)
     @browser.a(text: "Learn More").click
     @browser.button(text: "Add To Cart").click
-    assert_equal("#{base_url}/item_added", @browser.url, "incorrect location")
+    assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
   end
 
   def go_to_cart
