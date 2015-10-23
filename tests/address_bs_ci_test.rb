@@ -23,7 +23,7 @@ class ItemStaysInACartBrCiTest < Test::Unit::TestCase
 
   def test_my_account
     base_url = 'https://deseretbook.net'
-    @browser.goto "#{@base_url}/login"
+    @browser.goto "#{base_url}/login"
     @browser.link(text: "Create a new account").click
     email_new = ::Faker::Internet.safe_email
     @browser.text_field(name: "spree_user[email]").set email_new
