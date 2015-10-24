@@ -60,7 +60,7 @@ NUMBERS = {
     gift_card_confirmation
     logout
 
-    browser.goto "#{@main_url}/login"
+    @browser.goto "#{@main_url}/login"
     login_platinum
     empty_cart_main_site
     searching_for_cookbook_main_site
