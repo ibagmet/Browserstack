@@ -30,7 +30,7 @@ NUMBERS = {
     @main_url = 'https://deseretbook.com'
   end
 
-  def test_form_of_payment
+  def test_all_forms_of_payment
     sigin_up
     searching_for_rings
     credit_card_and_address_setting
@@ -154,7 +154,7 @@ NUMBERS = {
     @browser.label(text: "Use Billing Address").click
     @browser.button(class: "btn btn-primary pull-right js-form-validate btn-continue").click
     assert_equal("#{@base_url}/checkout/address", @browser.url, "incorrect location")
-    browser.button(class: "btn btn-primary pull-right js-form-validate btn-continue").click
+    @browser.button(class: "btn btn-primary pull-right js-form-validate btn-continue").click
     assert_equal("#{@base_url}/checkout/delivery", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-primary pull-right btn-continue").click
     assert_equal("#{@base_url}/checkout/payment", @browser.url, "incorrect location")
