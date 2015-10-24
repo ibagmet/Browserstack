@@ -307,7 +307,8 @@ NUMBERS = {
     assert_equal("#{@main_url}/p/lion-house-bakery-cookbook-70083?variant_id=29484-hardcover", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{@main_url}/item_added", @browser.url, "incorrect location")
-    go_to_cart
+    @browser.a(text: "Cart").click
+    assert_equal("#{@main_url}/cart", @browser.url, "incorrect location")
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
   end
 
