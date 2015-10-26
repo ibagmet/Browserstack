@@ -24,7 +24,7 @@ class WishListBsCiTest < Test::Unit::TestCase
   end
 
   def test_all_links_return_200
-    base_url = 'https://deseretbook.net'
+    base_url = 'https://deseretbook.com'
     @browser.goto  "#{base_url}"
     anchors = @browser.driver.find_elements(tag_name: 'a').select(&:displayed?).select do |anchor|
       href = anchor.attribute('href').to_s
@@ -78,7 +78,7 @@ class WishListBsCiTest < Test::Unit::TestCase
   # Go through all the links in the drop-down menus of the home page header and
   # make sure they all go to a page that returns 200 OK.
   def test_all_header_menu_links_return_200
-    base_url = 'https://deseretbook.net'
+    base_url = 'https://deseretbook.com'
     @browser.goto  "#{base_url}"
 
     failures = []
