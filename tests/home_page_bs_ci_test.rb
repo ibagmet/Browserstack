@@ -70,7 +70,6 @@ class WishListBsCiTest < Test::Unit::TestCase
           "Text: #{anchor.text.inspect}, URL: #{anchor.attribute('href').inspect}"
         }.join("\n")
       ].join("\n"),
-      debug_on_failure: false
     )
 
   end
@@ -134,8 +133,7 @@ class WishListBsCiTest < Test::Unit::TestCase
         failures.map{|menu, url, text|
           "Menu: #{menu.inspect}, Text: #{text.inspect}, URL: #{url.inspect}"
         }.join("\n")
-      ].join("\n"),
-      debug_on_failure: false
+      ].join("\n")
     )
 
   end
