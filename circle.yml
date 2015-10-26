@@ -18,6 +18,19 @@ machine:
     # SELENIUM_BROWSER: IE 
     # SELENIUM_VERSION: 11
 
+    # SELENIUM_PLATFORM: WINDOWS  
+    # SELENIUM_BROWSER: IE  
+    # SELENIUM_VERSION: 9  
+    
+    # caps["os"] = "OS X"
+    # caps["os_version"] = "Mavericks"
+    # caps["browser"] = "chrome"
+    # caps["browser_version"] = "33.0"     }for  def setup
+    # caps['browserstack.debug'] = true
+    # caps['takesScreenshot'] = true
+
+
+
 test:
   override:
     #- bundle exec rake test
