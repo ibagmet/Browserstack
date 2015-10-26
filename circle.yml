@@ -25,7 +25,7 @@ test:
     # - ./rst tests/item_stays_in_a_cart_bs_ci_test.rb
     #- ./rst tests/write_a_review_bs_ci_test.rb
     # - ./rst tests/buy_now_button_bs_ci_test.rb
-    # - ./rst tests/password_change_bs_ci_test.rb
+    # - ./rst tests/password_change_bs_ci_test.rb   #not tested yet - redirection
     # - ./rst tests/setup_bs_ci_test.rb
     # - ./rst tests/coupons_bs_ci_test.rb
     # - ./rst tests/address_bs_ci_test.rb
@@ -35,8 +35,9 @@ test:
     # - ./rst tests/guest_checkout_list_bs_ci_test.rb
     # - ./rst tests/payment_bs_ci_test.rb
     # - ./rst tests/payment_bs_ci_test.rb
-    # - ./rst tests/standard_checkout_list_bs_ci_test.rb
-    - ./rst tests/wish_list_bs_ci_test.rb
+    # - ./rst tests/standard_checkout_list_bs_ci_test.rb  #not tested yet - Error "Template is missing"
+    # - ./rst tests/wish_list_bs_ci_test.rb   #not tested yet - redirection
+    - ./rst tests/home_page_bs_ci_test.rb
 
 
 
