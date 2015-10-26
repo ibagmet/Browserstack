@@ -35,7 +35,9 @@ test:
     # - ./rst tests/guest_checkout_list_bs_ci_test.rb
     # - ./rst tests/payment_bs_ci_test.rb
     # - ./rst tests/payment_bs_ci_test.rb
-    - ./rst tests/standard_checkout_list_bs_ci_test.rb
+    # - ./rst tests/standard_checkout_list_bs_ci_test.rb
+    - ./rst tests/wish_list_bs_ci_test.rb
+
 
 
 
