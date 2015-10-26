@@ -35,7 +35,7 @@ class WishListBsCiTest < Test::Unit::TestCase
     go_to_my_account
     @browser.a(text: "Create new wishlist").click
     assert_equal("#{base_url}/wishlists/new", @browser.url, "incorrect location")
-    @browser.input(name: "wishlist[name]").set 'i have the need the need for speed'
+    @browser.text_field(name: "wishlist[name]").set 'i have the need the need for speed'
     @browser.input(name: "commit").click
     go_to_my_account
     assert @browser.text.include?("i have the need the need for speed")
