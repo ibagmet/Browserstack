@@ -422,8 +422,7 @@ NUMBERS = {
     assert_equal("#{@base_url}/p/dining-prophets-lion-house-92869?variant_id=2692-hardcover", @browser.url, "incorrect location")
     @browser.button(class: "btn btn-lg btn-primary btn-block btn-add-to-cart").click
     assert_equal("#{@base_url}/item_added", @browser.url, "incorrect location")
-    @browser.a(text: "Proceed to Checkout").click
-    assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
+    go_to_cart
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
     assert_equal("#{@base_url}/checkout/registration", @browser.url, "incorrect location")
     browser.a(text: "Create a new account").click
@@ -471,7 +470,7 @@ NUMBERS = {
     @browser.text_field(name: "spree_user[password_confirmation]").set 'test123'
     @browser.input(name: "commit").click
     assert(@browser.div(class: 'flash notice').present?)
-    @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
+    go_to_cart
   end
 
   def searching_for_dining_with_more_amount_digital
@@ -500,8 +499,7 @@ NUMBERS = {
   end
 
   def procced_to_checkout
-    @browser.a(text: "Proceed to Checkout").click
-    assert_equal("#{@base_url}/cart", @browser.url, "incorrect location")
+    go_to_cart
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
     assert_equal("#{@base_url}/checkout/registration", @browser.url, "incorrect location")
     @browser.a(text: "Create a new account").click
