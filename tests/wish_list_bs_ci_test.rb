@@ -75,3 +75,5 @@ private
     assert @browser.text.include?("My Account")
     @browser.a(text: "My Wishlists").click
   end
+end
+
