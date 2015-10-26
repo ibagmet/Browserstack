@@ -48,7 +48,9 @@ class WishListBsCiTest < Test::Unit::TestCase
     assert @browser.text.include?("Editing wishlist")
     @browser.a(text: "Delete wishlist").click
     @browser.a(text: "OK").click
-    @browser.goto "#{@base_url}/logout"
+    puts @browser.title
+    @browser.goto  "#{base_url}/logout"
+    @browser.quit
   end
 
   def test_whishlist_as_a_guest
@@ -56,6 +58,8 @@ class WishListBsCiTest < Test::Unit::TestCase
     @browser.a(text: "Wish List").click
     assert_equal("https://deseretbook.net/wishlists", @browser.url, "incorrect location")
     assert @browser.text.include?("Wishlists")
+    puts @browser.title
+    @browser.quit
   end
 
 private
