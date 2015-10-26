@@ -425,7 +425,7 @@ NUMBERS = {
     go_to_cart
     @browser.a(class: "btn btn-primary btn-lg pull-right btn-checkout").click
     assert_equal("#{@base_url}/checkout/registration", @browser.url, "incorrect location")
-    browser.a(text: "Create a new account").click
+    @browser.a(text: "Create a new account").click
     assert_equal("#{@base_url}/signup", @browser.url, "incorrect location")
     @browser.text_field(name: "spree_user[email]").set ::Faker::Internet.email
     @browser.text_field(name: "spree_user[first_name]").set 'test_name'
