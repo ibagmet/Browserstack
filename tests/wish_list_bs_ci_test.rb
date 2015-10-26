@@ -61,6 +61,7 @@ class WishListBsCiTest < Test::Unit::TestCase
 private
 
   def searching_for_bible
+    base_url = 'https://deseretbook.net'
     @browser.text_field(name: "keywords").set 'Black Unindexed Regular Economy Bible: 2013 Edition'
     @browser.input(class: "btn btn-primary img-responsive js-search-button").click
     assert(@browser.h1(text: "Search results for 'Black Unindexed Regular Economy Bible: 2013 Edition'").exists?)
@@ -70,6 +71,7 @@ private
   end
 
   def go_to_my_account
+    base_url = 'https://deseretbook.net'
     @browser.a(text: "My Account").when_present.click
     assert_equal("#{base_url}/account", @browser.url, "incorrect location")
     assert @browser.text.include?("My Account")
